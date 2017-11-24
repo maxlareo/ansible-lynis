@@ -1,0 +1,53 @@
+---  # tasks file for lynis
+
+- name: install dependencies
+  package:
+    name: apt-transport-https
+    state: present
+  tags:
+    - install
+    - lynis
+    - lynis-install
+
+- name: Add cisofy.com apt key
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: C80E383C3DE9F082E01391A0366C67DE91CA5D5F
+  tags:
+    - install
+    - lynis
+    - lynis-install
+
+- name: Add packages.cisofy.com repository
+  apt_repository:
+    repo: >
+      deb https://packages.cisofy.com/community/lynis/deb/
+      {{ ansible_distribution_release }} main
+    state: present
+  tags:
+    - install
+    - lynis
+    - lynis-install
+
+- name: Install lynis
+  apt:
+    name: lynis
+    update_cache: true
+    cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
+    state: present
+  tags:
+    - install
+    - lynis
+    - lynis-install
+
+- name: Configure /etc/lynis/custom.prf
+  template:
+    src: etc/lynis/custom.prf.j2
+    dest: /etc/lynis/custom.prf
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - configuration
+    - lynis
+    - lynis-configuration

@@ -1,0 +1,105 @@
+# {{ ansible_managed }}
+#
+#################################################################################
+#
+#
+# Lynis - Scan Profile (custom)
+#
+# This is the custom profile and contains custom values.
+# See /etc/lynis/default.prf to find default values.
+#
+#
+#################################################################################
+#
+# All empty lines or with the # prefix will be skipped
+#
+# More information about this plugin can be found in the documentation:
+# https://cisofy.com/documentation/lynis/
+#
+#################################################################################
+
+# Use colored output
+colors={{ lynis_colors }}
+
+# Compressed uploads (set to zero when errors with uploading occur)
+compressed-uploads={{ lynis_compressed_uploads }}
+
+# Show non-zero exit code when warnings are found
+error-on-warnings={{ lynis_error_on_warnings }}
+
+# Use Lynis in your own language (by default auto-detected)
+language={{ lynis_language }}
+
+# Lynis Enterprise license key
+license-key={{ lynis_license_key }}
+
+# Defines the role of the system (personal, workstation or server)
+machine-role={{ lynis_machine_role }}
+
+# Profile name, will be used as title/description
+profile-name={{ lynis_profile_name }}
+
+# Number of seconds to pause between every test (0 is no pause)
+pause-between-tests={{ lynis_pause_between_tests }}
+
+# Enable quick mode (no waiting for keypresses, same as --quick option)
+quick={{ lynis_quick }}
+
+# Refresh software repositories to help detecting vulnerable packages
+refresh-repositories={{ lynis_refresh_repositories }}
+
+# Show solution for findings
+show-report-solution={{ lynis_show_report_solution }}
+
+# Show inline tips about the tool
+show-tool-tips={{ lynis_show_tool_tips }}
+
+# Skip plugins
+skip-plugins={{ lynis_skip_plugins }}
+
+# Skip a test (one per line)
+#skip-test=SSH-7408
+
+# Skip a particular option within a test (when applicable)
+#skip-test=SSH-7408:loglevel
+#skip-test=SSH-7408:permitrootlogin
+
+{% for test in lynis_skip_tests %}
+skip-test={{ test }}
+{% endfor %}
+
+# Scan type - how deep the audit should be (light, normal or full)
+test-scan-mode={{ lynis_test_scan_mode }}
+
+# Upload data to central server
+upload={{ lynis_upload }}
+
+# The hostname/IP address to receive the data
+upload-server={{ lynis_upload_server }}
+
+# Provide options to cURL (or other upload tool) when uploading data.
+# upload-options=--insecure   --> use HTTPS, but skip certificate check (e.g. self-signed)
+upload-options={{ lynis_upload_options }}
+
+# Verbose output
+verbose={{ lynis_verbose }}
+
+#################################################################################
+#
+# Plugins
+# ---------------
+# Define which plugins are enabled
+#
+# Notes:
+# - Nothing happens if plugin isn't available
+# - There is no order in execution of plugins
+# - See documentation about how to use plugins and phases
+#
+#################################################################################
+
+# Lynis Plugins (some are for Lynis Enterprise users only)
+{% for plugin in lynis_plugins %}
+plugin={{ plugin }}
+{% endfor %}
+
+#EOF

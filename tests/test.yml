@@ -1,0 +1,6 @@
+---  # test file for lynis
+- hosts: localhost
+  become: true
+  connection: local
+  roles:
+    - ../../
