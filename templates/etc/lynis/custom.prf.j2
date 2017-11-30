@@ -18,9 +18,6 @@
 #
 #################################################################################
 
-# Use colored output
-colors={{ lynis_colors }}
-
 # Compressed uploads (set to zero when errors with uploading occur)
 compressed-uploads={{ lynis_compressed_uploads }}
 
@@ -70,9 +67,6 @@ skip-test={{ test }}
 
 # Scan type - how deep the audit should be (light, normal or full)
 test-scan-mode={{ lynis_test_scan_mode }}
-
-# Upload data to central server
-upload={{ lynis_upload }}
 
 # The hostname/IP address to receive the data
 upload-server={{ lynis_upload_server }}

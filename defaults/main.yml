@@ -1,6 +1,5 @@
 ---  # defaults file for lynis
 
-lynis_colors: 'yes'
 lynis_compressed_uploads: 'yes'
 lynis_error_on_warnings: 'no'
 lynis_language: ''
@@ -15,7 +14,6 @@ lynis_show_tool_tips: 'yes'
 lynis_skip_plugins: 'no'
 lynis_skip_tests: []
 lynis_test_scan_mode: full
-lynis_upload: 'no'
 lynis_upload_server: ''
 lynis_upload_options: ''
 lynis_verbose: 'no'
