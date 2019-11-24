@@ -5,11 +5,6 @@ Lynis
 
 Install and configure Lynis in Debian-like systems
 
-Requirements
-------------
-
-None
-
 Role Variables
 --------------
 
@@ -54,13 +49,3 @@ License
 -------
 
 MIT
-
-Author Information
-------------------
-
-[Maxime Lareo](https://github.com/maxlareo)
-
-Feedback, bug-reports, requests, ...
-------------------------------------
-
-Are [welcome](https://github.com/maxlareo/ansible-lynis/issues)!

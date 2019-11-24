@@ -1,5 +1,4 @@
----  # defaults file for lynis
-
+---
 lynis_compressed_uploads: 'yes'
 lynis_error_on_warnings: 'no'
 lynis_language: ''

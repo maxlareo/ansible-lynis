@@ -1,10 +1,8 @@
----  # tasks file for lynis
-
+---
 - name: install dependencies
   apt:
     name: apt-transport-https
-    update_cache: true
-    cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
+    cache_valid_time: 3600
     state: present
   tags:
     - install
@@ -34,8 +32,7 @@
 - name: Install lynis
   apt:
     name: lynis
-    update_cache: true
-    cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
+    cache_valid_time: 3600
     state: present
   tags:
     - install
